@@ -14,7 +14,7 @@ def import_custom_nodes() -> None:
     """
     import asyncio
     import execution
-    from nodes import init_custom_nodes
+    from nodes import init_builtin_extra_nodes, init_external_custom_nodes
     import server
 
     # Creating a new event loop and setting it as the default loop
@@ -26,7 +26,8 @@ def import_custom_nodes() -> None:
     execution.PromptQueue(server_instance)
 
     # Initializing custom nodes
-    init_custom_nodes()
+    init_builtin_extra_nodes()
+    init_external_custom_nodes()
 
 
 def find_path(name: str, path: str = None) -> str:
